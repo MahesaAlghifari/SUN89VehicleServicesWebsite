@@ -1,0 +1,10 @@
+{
+  "description": "Membantu pemilik kendaraan memesan layanan administrasi, mengelola profil dan pesanan, serta melacak dokumen kendaraan dengan mudah.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
