@@ -1,0 +1,5 @@
+# Store compiled/imported web images directly in Git so hosting deploy tools (e.g. Plesk Git) receive real binary files instead of Git LFS pointers.
+*.png -filter -diff -merge -text
+*.jpg -filter -diff -merge -text
+*.jpeg -filter -diff -merge -text
+*.webp -filter -diff -merge -text
