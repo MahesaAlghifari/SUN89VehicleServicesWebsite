@@ -4,6 +4,7 @@ import { Mail, MapPin, Menu, Phone, UserRound, X } from "lucide-react";
 import { useAuth } from "../../app/providers/AuthProvider";
 import { useCompanyProfile } from "../../hooks/useData";
 import { Brand } from "../common/Brand";
+import { getTelUrl, getWhatsAppUrl } from "../../utils/contact";
 
 const nav = [
   { to: "/", label: "Beranda" },
@@ -106,33 +107,53 @@ export function SiteLayout() {
           <div>
             <h3 className="font-heading font-bold">Kontak</h3>
             <div className="mt-5 space-y-3 text-sm text-blue-100/75">
-              <p className="flex gap-2">
-                <MapPin size={17} />
-                {company?.address ?? "Alamat kantor akan dikonfirmasi"}
+              <p className="flex items-start gap-2.5">
+                <MapPin size={17} className="mt-0.5 shrink-0 text-blue-300" />
+                <span>{company?.address}</span>
               </p>
-              <p className="flex gap-2">
-                <Phone size={17} />
-                {company?.phone ?? "Nomor telepon akan dikonfirmasi"}
+              <p className="flex items-center gap-2.5">
+                <Phone size={17} className="shrink-0 text-blue-300" />
+                <a
+                  href={getTelUrl(company?.phone)}
+                  className="transition hover:text-white"
+                >
+                  {company?.phone}
+                </a>
               </p>
-              <p className="flex gap-2">
-                <Mail size={17} />
-                {company?.email ?? "Email akan dikonfirmasi"}
-              </p>
+              {company?.email && (
+                <p className="flex items-center gap-2.5">
+                  <Mail size={17} className="shrink-0 text-blue-300" />
+                  <a href={`mailto:${company.email}`} className="transition hover:text-white">
+                    {company.email}
+                  </a>
+                </p>
+              )}
             </div>
           </div>
           <div>
             <h3 className="font-heading font-bold">Jam Layanan</h3>
-            <p className="mt-5 text-sm leading-6 text-blue-100/75">
-              Informasi jam operasional akan dikonfirmasi.
-            </p>
-            <p className="mt-4 text-xs text-blue-200/50">
-              WhatsApp: {company?.whatsapp ?? "Nomor akan dikonfirmasi"}
-            </p>
+            <ul className="mt-5 space-y-1.5 text-sm leading-6 text-blue-100/75">
+              {(company?.hours ?? []).map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            {company?.whatsapp && (
+              <p className="mt-4 text-xs text-blue-200/75">
+                WhatsApp:{" "}
+                <a
+                  href={getWhatsAppUrl(company.whatsapp)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white underline-offset-4 hover:underline"
+                >
+                  {company.whatsapp}
+                </a>
+              </p>
+            )}
           </div>
         </div>
         <div className="border-t border-white/10 py-5 text-center text-xs text-blue-100/55">
-          © 2025 {company?.companyName ?? "CV. SUN DELAPAN SEMBILAN"}. Konten demonstrasi untuk
-          pengembangan.
+          © {new Date().getFullYear()} {company?.companyName ?? "CV. SUN DELAPAN SEMBILAN"}
         </div>
       </footer>
     </div>

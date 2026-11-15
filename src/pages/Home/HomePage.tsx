@@ -12,13 +12,13 @@ import {
   HandCoins,
   Headphones,
   MapPinned,
-  Quote,
   Send,
   Truck,
 } from "lucide-react";
 import { useServices } from "../../hooks/useData";
-import { officeImages, statistics } from "../../mocks/data";
+import { clientLogos, heroImage, officeGallery, statistics, testimonials } from "../../mocks/data";
 import { SectionHeading } from "../../components/common/SectionHeading";
+import { TestimonialCarousel } from "../../components/common/TestimonialCarousel";
 
 const process = [
   {
@@ -235,14 +235,11 @@ export function HomePage() {
             </div>
             <div className="relative min-h-[360px] overflow-hidden lg:min-h-full">
               <img
-                src={officeImages[0]}
-                alt="Placeholder eksterior kantor profesional"
-                className="absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-[1.02]"
+                src={heroImage}
+                alt="Tampak depan kantor SUN 89 Biro Jasa"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#102A49]/30 via-transparent to-transparent" />
-              <span className="absolute bottom-5 right-5 rounded-full bg-white/90 px-4 py-2 text-[10px] font-semibold tracking-wide text-[#17375E] backdrop-blur">
-                FOTO KANTOR SEMENTARA
-              </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#102A49]/25 via-transparent to-transparent" />
             </div>
           </div>
           <div className="grid border-t border-[#E5EAF0] bg-white sm:grid-cols-3">
@@ -259,9 +256,6 @@ export function HomePage() {
             ))}
           </div>
         </div>
-        <p className="mt-3 text-center text-[11px] text-[#98A2B3] md:text-right">
-          Angka statistik merupakan data contoh dan belum terverifikasi.
-        </p>
       </section>
 
       <section className="section bg-[#F2F6FA]">
@@ -352,15 +346,21 @@ export function HomePage() {
             align="center"
             eyebrow="Klien Kami"
             title="Kepercayaan yang kami jaga"
-            description="Logo klien akan ditampilkan setelah aset dan izin publikasi dikonfirmasi."
+            description="Dipercaya berbagai perusahaan pembiayaan dan perbankan dalam pengurusan administrasi kendaraan."
           />
-          <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#E5EAF0] bg-[#E5EAF0] md:grid-cols-5">
-            {Array.from({ length: 5 }).map((_, i) => (
+          <div className="mx-auto mt-12 flex max-w-5xl flex-wrap justify-center gap-3">
+            {clientLogos.map((client) => (
               <div
-                key={i}
-                className="grid h-28 place-items-center bg-white text-[10px] font-bold tracking-[.18em] text-[#98A2B3] transition-colors hover:bg-[#F8FAFC]"
+                key={client.name}
+                title={client.name}
+                className="flex h-24 w-[calc(50%-0.375rem)] items-center justify-center rounded-2xl border border-[#E5EAF0] bg-white px-5 py-4 shadow-[0_8px_24px_rgba(23,55,94,0.03)] transition hover:border-[#CBD5E1] hover:shadow-[0_12px_28px_rgba(23,55,94,0.07)] sm:h-28 sm:w-[calc(33.333%-0.5rem)] md:w-[calc(25%-0.5625rem)] lg:w-[calc(20%-0.6rem)]"
               >
-                LOGO KLIEN
+                <img
+                  src={client.src}
+                  alt={client.name}
+                  loading="lazy"
+                  className="max-h-12 max-w-full object-contain"
+                />
               </div>
             ))}
           </div>
@@ -373,44 +373,9 @@ export function HomePage() {
             align="center"
             eyebrow="Testimoni"
             title="Cerita dari pelanggan"
-            description="Konten berikut merupakan contoh tata letak dan bukan ulasan pelanggan nyata."
+            description="Pengalaman pelanggan yang telah mempercayakan pengurusan dokumen kendaraannya kepada SUN 89."
           />
-          <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-[1.15fr_.85fr]">
-            {[
-              [
-                "Prosesnya dijelaskan dengan runtut sehingga saya memahami dokumen apa saja yang perlu disiapkan.",
-                "Nama pelanggan contoh",
-                "Perpanjangan STNK",
-              ],
-              [
-                "Pembaruan status membantu saya mengetahui posisi proses tanpa perlu menanyakan berulang kali.",
-                "Nama pelanggan contoh",
-                "Balik Nama",
-              ],
-            ].map(([quote, name, service]) => (
-              <article
-                className="relative overflow-hidden rounded-2xl border border-[#E5EAF0] bg-white p-7 shadow-[0_14px_40px_rgba(23,55,94,.045)] md:p-9"
-                key={service}
-              >
-                <Quote className="absolute right-6 top-5 size-14 text-[#2563EB]/8" />
-                <span className="text-[10px] font-bold tracking-[.16em] text-[#98A2B3]">
-                  TESTIMONI CONTOH
-                </span>
-                <p className="relative mt-7 font-heading text-lg font-semibold leading-8">
-                  “{quote}”
-                </p>
-                <div className="mt-8 flex items-center gap-3 border-t border-[#E5EAF0] pt-5">
-                  <span className="grid size-9 place-items-center rounded-full bg-[#EDF4FC] text-xs font-bold text-[#3979B9]">
-                    {name.charAt(0)}
-                  </span>
-                  <div>
-                    <strong className="text-sm">{name}</strong>
-                    <p className="text-xs text-[#667085]">{service}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <TestimonialCarousel items={testimonials} />
         </div>
       </section>
 
@@ -420,37 +385,21 @@ export function HomePage() {
             align="center"
             eyebrow="Galeri"
             title="Ruang dan aktivitas SUN 89"
-            description="Foto profesional sementara yang akan diganti dengan dokumentasi kantor asli."
+            description="Dokumentasi ruang kerja, proses pengurusan, dan pelayanan SUN 89."
           />
           <div className="mt-12 grid auto-rows-[190px] grid-cols-2 gap-3 md:auto-rows-[230px] md:grid-cols-4">
-            {officeImages.map((image, i) => (
+            {officeGallery.map((item, i) => (
               <figure
-                key={image}
+                key={item.src}
                 className={`group relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 row-span-2" : ""}`}
               >
                 <img
-                  src={image}
-                  alt={
-                    [
-                      "Tampak depan kantor",
-                      "Interior kantor",
-                      "Area resepsionis",
-                      "Aktivitas pelayanan",
-                      "Dokumentasi pengurusan kendaraan",
-                    ][i]
-                  }
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  src={item.src}
+                  alt={item.alt}
+                  className={`h-full w-full object-cover ${item.objectPosition} transition duration-500 group-hover:scale-105`}
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-4 pt-12 text-xs font-semibold text-white">
-                  {
-                    [
-                      "Tampak depan kantor",
-                      "Interior kantor",
-                      "Area resepsionis",
-                      "Aktivitas pelayanan",
-                      "Dokumentasi pengurusan kendaraan",
-                    ][i]
-                  }
+                  {item.title}
                 </figcaption>
               </figure>
             ))}

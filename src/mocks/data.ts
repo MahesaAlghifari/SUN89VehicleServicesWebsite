@@ -1,4 +1,24 @@
 import type { CompanyProfile, Customer, Order, OrderStage, Service } from "../types";
+import heroImg from "../assets/hero.jpg";
+import galleryOfficeTeam from "../assets/gallery-office-team.jpg";
+import galleryDocuments from "../assets/gallery-documents.jpg";
+import gallerySamsat from "../assets/gallery-samsat.jpg";
+import galleryInspection from "../assets/gallery-inspection.jpg";
+import galleryHandover from "../assets/gallery-handover.jpg";
+import bcaFinanceLogo from "../assets/clients/bca-finance.png";
+import bfiFinanceLogo from "../assets/clients/bfi-finance.webp";
+import bprsAlsalaamLogo from "../assets/clients/bprs-alsalaam.jpg";
+import cimbNiagaFinanceLogo from "../assets/clients/cimb-niaga-finance.jpg";
+import clemontFinanceLogo from "../assets/clients/clemont-finance.png";
+import clipanFinanceLogo from "../assets/clients/clipan-finance.png";
+import csulFinanceLogo from "../assets/clients/csul-finance.png";
+import gratamaFinanceLogo from "../assets/clients/gratama-finance.png";
+import jTrustBankLogo from "../assets/clients/j-trust-bank.jpg";
+import jaccsMpmFinanceLogo from "../assets/clients/jaccs-mpm-finance.png";
+import kbBukopinFinanceLogo from "../assets/clients/kb-bukopin-finance.png";
+import mandiriUtamaFinanceLogo from "../assets/clients/mandiri-utama-finance.svg";
+import smsFinanceLogo from "../assets/clients/sms-finance.svg";
+import wooriFinanceLogo from "../assets/clients/woori-finance.png";
 
 export const services: Service[] = [
   {
@@ -130,10 +150,19 @@ export const services: Service[] = [
 export const company: CompanyProfile = {
   companyName: "CV. SUN DELAPAN SEMBILAN",
   brandName: "SUN 89",
-  address: "Alamat kantor akan dikonfirmasi",
-  phone: "Nomor telepon akan dikonfirmasi",
-  email: "Email akan dikonfirmasi",
-  whatsapp: "Nomor WhatsApp akan dikonfirmasi",
+  address:
+    "Jl. Raya Sukahati No. 06, RT 01/RW 03, Sukahati, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16913",
+  phone: "021 8372 4628",
+  whatsapp: "081219801888",
+  hours: [
+    "Senin – Jumat: 08.00 – 17.00",
+    "Sabtu: 08.00 – 15.00",
+    "Minggu: Tutup",
+  ],
+  mapEmbedUrl:
+    "https://maps.google.com/maps?q=SUN+89+BIRO+JASA+Bogor&z=16&output=embed",
+  mapLinkUrl:
+    "https://www.google.com/maps/search/?api=1&query=SUN+89+BIRO+JASA+Bogor",
   socialLinks: { instagram: "#", facebook: "#" },
 };
 
@@ -246,10 +275,90 @@ export const orderStages: OrderStage[] = [
   },
 ];
 
-export const officeImages = [
-  "https://images.unsplash.com/photo-1621831337128-35676ca30868?auto=format&fit=crop&w=1800&q=85",
-  "https://images.unsplash.com/photo-1709497197725-2e97c76b31d0?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1693471019113-d2837cc9a2cc?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1707823942892-3316eeb091a0?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1659384899570-49a0ad1f545a?auto=format&fit=crop&w=1200&q=80",
+export const heroImage = heroImg;
+
+export const officeGallery = [
+  {
+    src: galleryOfficeTeam,
+    title: "Pemeriksaan & sortir berkas di kantor",
+    alt: "Tim SUN 89 memeriksa dan menyusun dokumen kendaraan di meja kantor",
+    objectPosition: "object-center",
+  },
+  {
+    src: galleryDocuments,
+    title: "Kelengkapan dokumen & verifikasi berkas",
+    alt: "Verifikasi kelengkapan map berkas dan dokumen kendaraan SUN 89",
+    objectPosition: "object-center",
+  },
+  {
+    src: gallerySamsat,
+    title: "Pengurusan dokumen di Samsat",
+    alt: "Kantor Samsat untuk pengurusan administrasi kendaraan",
+    objectPosition: "object-center",
+  },
+  {
+    src: galleryInspection,
+    title: "Pendampingan cek fisik kendaraan",
+    alt: "Proses cek fisik kendaraan bersama petugas di Polres Bogor",
+    objectPosition: "object-[center_35%]",
+  },
+  {
+    src: galleryHandover,
+    title: "Pengantaran & serah terima ke pelanggan",
+    alt: "Serah terima dokumen STNK dan pelat kendaraan kepada pelanggan SUN 89",
+    objectPosition: "object-[center_20%]",
+  },
+];
+
+export const clientLogos = [
+  { name: "BCA Finance", src: bcaFinanceLogo },
+  { name: "Mandiri Utama Finance", src: mandiriUtamaFinanceLogo },
+  { name: "CIMB Niaga Finance", src: cimbNiagaFinanceLogo },
+  { name: "BFI Finance", src: bfiFinanceLogo },
+  { name: "Clipan Finance", src: clipanFinanceLogo },
+  { name: "KB Bukopin Finance", src: kbBukopinFinanceLogo },
+  { name: "J Trust Bank", src: jTrustBankLogo },
+  { name: "Woori Finance Indonesia", src: wooriFinanceLogo },
+  { name: "CSUL Finance", src: csulFinanceLogo },
+  { name: "JACCS MPM Finance", src: jaccsMpmFinanceLogo },
+  { name: "SMS Finance", src: smsFinanceLogo },
+  { name: "Clemont Finance", src: clemontFinanceLogo },
+  { name: "Gratama Finance", src: gratamaFinanceLogo },
+  { name: "BPRS AlSalaam", src: bprsAlsalaamLogo },
+];
+
+export const testimonials = [
+  {
+    name: "Ibnu Barand",
+    quote: "Pelayanan cepat, lebih cepat dari estimasi. Jika ada sisa uang, dikembalikan.",
+  },
+  {
+    name: "Indra Pastel",
+    quote: "Biro jasa terpercaya, ketepatan waktu, transparan, ngak ribet, keren deh pokoknya 👍",
+  },
+  {
+    name: "Andry Setiawan",
+    quote:
+      "Fast Respon bgt asli !!! Request customer is number one... Mudah-mudahan bisa lebih cepat selesai dari waktu yang telah di tentukan.. mantaapsss joss SUN 89 BIRO JASA",
+  },
+  {
+    name: "Andreas Hariyo",
+    quote:
+      "Pelayanannya ramah, semua proses dokumen di-update berkala dan transparan. Jika biaya yang dipakai lebih kecil dari estimasi. Langsung diberikan pengembalian dana. Pokoknya mantap.",
+  },
+  {
+    name: "Rna Hidayat",
+    quote:
+      "Alhamdulillah petugasnya ramah2 dan prosesnya cepat... besok2 kalo urus2 ke SUN89 aja.. recomended pokoknya.... terimaksih sun89",
+  },
+  {
+    name: "Ibrahim Arbil",
+    quote:
+      "Biro jasa yang saya rekomendasikan. Pelayanan mantap, staff ramah dan sangat membantu. Berkas pengajuan prosesnya cepat dan dapat dijemput dan bisa diantar langsung ke rumah. Mantapp 👍.",
+  },
+  {
+    name: "Papau Fauzan",
+    quote:
+      "Mantap banget biro jasa ini bisa nyelesain masalah pemberkasan yang ada kendala, pokonya pelayanannya responsif, cepat dan amanah banget, terimakasih sun 89 biro jasa",
+  },
 ];

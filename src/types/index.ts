@@ -46,8 +46,11 @@ export type CompanyProfile = {
   brandName: string;
   address: string;
   phone: string;
-  email: string;
+  email?: string;
   whatsapp: string;
+  hours: string[];
+  mapEmbedUrl: string;
+  mapLinkUrl: string;
   socialLinks: Record<string, string>;
 };
 

@@ -1,17 +1,22 @@
 import { Link } from "react-router";
+import logoImg from "../../assets/logo.jpeg";
 
 export function Brand({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-3" aria-label="SUN 89 Beranda">
-      <span className="grid size-11 place-items-center rounded-xl bg-[#2563EB] font-heading text-sm font-extrabold text-white shadow-lg shadow-blue-900/15">
-        89
-      </span>
-      <span className={`leading-none ${light ? "text-white" : "text-[#17375E]"}`}>
-        <strong className="font-heading text-lg tracking-tight">SUN 89</strong>
-        <small className="mt-1 block text-[9px] font-semibold tracking-[0.2em] opacity-65">
-          BIRO JASA
-        </small>
-      </span>
+    <Link
+      to="/"
+      className={
+        light
+          ? "inline-flex items-center rounded-xl bg-white px-3 py-1.5 shadow-sm"
+          : "inline-flex items-center"
+      }
+      aria-label="SUN 89 Beranda"
+    >
+      <img
+        src={logoImg}
+        alt="SUN 89 Biro Jasa"
+        className="h-9 w-auto object-contain sm:h-10"
+      />
     </Link>
   );
 }
