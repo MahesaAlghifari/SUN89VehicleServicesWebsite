@@ -174,9 +174,19 @@ export const statistics = [
 
 export const customer: Customer = {
   id: "cust-001",
+  customerType: "PERORANGAN",
   fullName: "Raka Pratama",
   email: "raka@example.com",
   phone: "0812 0000 0089",
+  provinsi: "DKI Jakarta",
+  kotaKabupaten: "Kota Adm. Jakarta Selatan",
+  kecamatan: "",
+  desaKelurahan: "",
+  rtRw: "",
+  noRumah: "",
+  patokan: "",
+  detailAlamat: "Jakarta, Indonesia",
+  linkGoogleMaps: "",
   address: "Jakarta, Indonesia",
 };
 

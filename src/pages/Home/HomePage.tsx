@@ -173,7 +173,8 @@ function ServiceAccordion() {
               {activeService.category.replace(/_/g, " ")}
             </span>
             <span className="text-xs font-semibold text-blue-200/60">
-              {String(activeService.sortOrder).padStart(2, "0")} / 08
+              {String(activeService.sortOrder).padStart(2, "0")} /{" "}
+              {String(data?.length ?? 8).padStart(2, "0")}
             </span>
           </div>
           <h3 className="mt-7 max-w-md font-heading text-3xl font-bold leading-tight tracking-[-0.035em]">
